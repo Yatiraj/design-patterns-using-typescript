@@ -1,13 +1,13 @@
-#Observer Pattern
+# Observer Pattern
 The Observer Pattern defines a one-to-many dependency between objects so that when one object changes state, all of its dependents are notified and updated automatically. 
 
 We are using the observer pattern to notify the weather parameter changes to the displays that have subscribed
 
-##Learnings from this chapter:
-###OO Principles:
+## Learnings from this chapter:
+### OO Principles:
 * Strive for loosely coupled designs between objects thats interact
 
-###Notes
+### Notes
 - The Observer Pattern defines a one-to-many relationship between objects.
 - Subjects update Observers using a common interface.
 - Observers of any concrete type can participate in the pattern as long as they implement the Observer interface.
@@ -16,12 +16,12 @@ We are using the observer pattern to notify the weather parameter changes to the
 - The Observer Pattern is related to the Publish/Subscribe Pattern, which is for more complex situations with multiple Subjects and/or multiple message types
 - Publishers + Subscribers = Observer Pattern
 
-###code details
+### code details
 - Subject.ts -> interface for Subjects
 - WeatherData.ts -> Subject
 - Observer.ts ->interface for observers
 - display directory-> interface for display and its implementations
 
-###How to run
+### How to run
 - npm install
 - npm start

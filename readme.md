@@ -4,7 +4,7 @@
 - Each directory under src/ has implementation for individual Design pattern and also has its own Readme.md with more details about pattern and implementation
 
 
-###How to run
+### How to run
 * npm install
 * npm start
 

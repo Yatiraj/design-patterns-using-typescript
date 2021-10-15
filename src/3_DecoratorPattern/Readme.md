@@ -1,13 +1,13 @@
-#Decorator Pattern
+# Decorator Pattern
 The Decorator Pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
 
 In our example we are using Decorator pattern for StarBucks order system, to order beverage and add condiments dynamically.
 
-##Learnings from this chapter:
-###OO Principles:
+## Learnings from this chapter:
+### OO Principles:
 - Classes should be open for extension, but closed for modification
 
-###Notes
+### Notes
 
 - While it may seem like a contradiction, there are techniques for allowing code to be extended without direct modification. Be careful when choosing the areas of code that need to be extended; applying the Open-Closed Principle EVERYWHERE is wasteful and unnecessary, and can lead to complex, hard-to-understand code.
 
@@ -22,10 +22,10 @@ In our example we are using Decorator pattern for StarBucks order system, to ord
 - Decorators are typically transparent to the client of the component—that is, unless the client is relying on the component’s concrete type.
 - Decorators can result in many small objects in our design, and overuse can be complex.
 
-###code details
+### code details
 - beverage directory-> Has beverage abstract class and its subclasses for different beverages
 - condimentDecorator directory-> Has condimentDecorator abstract class, which uses decorator pattern to add behaviours to beverages dynamically. This directory has subclasses for condimentDecorator
 
-###How to run
+### How to run
 * npm install
 * npm start
