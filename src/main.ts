@@ -12,6 +12,15 @@ import {HouseBlend} from '../src/3_DecoratorPattern/beverage/HouseBlend';
 import {Whip} from '../src/3_DecoratorPattern/condimentDecorator/Whip';
 import {Mocha} from '../src/3_DecoratorPattern/condimentDecorator/Mocha';
 import {Soy} from '../src/3_DecoratorPattern/condimentDecorator/Soy';
+import {PizzaStore} from "./4_FactoryPattern/0_Simple_Factory/PizzaStore";
+import {SimplePizzaFactory} from "./4_FactoryPattern/0_Simple_Factory/SimplePizzaFactory";
+import {NYPizzaStore as NYPizzaStore1} from "./4_FactoryPattern/1_Factory_Method/PizzaStores/NYPizzaStore";
+import {Pizza as Pizza0} from "./4_FactoryPattern/0_Simple_Factory/Pizzas/Pizza";
+import {Pizza as Pizza1} from "./4_FactoryPattern/1_Factory_Method/Pizzas/Pizza";
+import {ChicagoPizzaStore as ChicagoPizzaStore1} from "./4_FactoryPattern/1_Factory_Method/PizzaStores/ChicagoPizzaStore";
+import {NYPizzaStore as NYPizzaStore2} from "./4_FactoryPattern/2_Abstract_Factory/PizzaStores/NYPizzaStore";
+import {Pizza as Pizza2} from "./4_FactoryPattern/2_Abstract_Factory/Pizzas/Pizza";
+import {ChicagoPizzaStore as ChicagoPizzaStore2} from "./4_FactoryPattern/2_Abstract_Factory/PizzaStores/ChicagoPizzaStore";
 
 //StrategyPattern
 console.log('<---- Strategy Pattern ---->');
@@ -70,11 +79,40 @@ beverage3 = new Mocha(beverage3);
 beverage3 = new Whip(beverage3);
 console.log(beverage3.getDescription() + " : $ " + beverage3.getCost());
 
+//Factory Pattern
+console.log('<---- Factory Pattern ---->');
 
+//0. Simple Factory
+console.log('<---- Simple Factory ---->');
+let pizzaStore = new PizzaStore(new SimplePizzaFactory());
+let pizza0: Pizza0 = pizzaStore.orderPizza('cheese');
+pizza0.displayPizza();
+pizza0 = pizzaStore.orderPizza('pepperoni');
+pizza0.displayPizza();
 
+//1. Factory method
+console.log('<---- Factory method ---->');
+let nyPizzaStore1 = new NYPizzaStore1();
+let pizza1: Pizza1 = nyPizzaStore1.orderPizza('cheese');
+pizza1.displayPizza();
+let chicagoPizzaStore1 = new ChicagoPizzaStore1();
+pizza1 = chicagoPizzaStore1.orderPizza('cheese');
+pizza1.displayPizza();
 
+//2. Abstract Factory
+console.log('<---- Abstract method ---->');
 
+let nyPizzaStore2 = new NYPizzaStore2();
+let pizza2: Pizza2 = nyPizzaStore2.orderPizza('cheese');
+pizza2.displayPizza();
+pizza2 = nyPizzaStore2.orderPizza('veggie');
+pizza2.displayPizza();
 
+let chicagoPizzaStore2 = new ChicagoPizzaStore2();
+pizza2 = chicagoPizzaStore2.orderPizza('cheese');
+pizza2.displayPizza();
+pizza2 = chicagoPizzaStore2.orderPizza('veggie');
+pizza2.displayPizza();
 
 
 
