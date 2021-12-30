@@ -21,6 +21,7 @@ import {ChicagoPizzaStore as ChicagoPizzaStore1} from "./4_FactoryPattern/1_Fact
 import {NYPizzaStore as NYPizzaStore2} from "./4_FactoryPattern/2_Abstract_Factory/PizzaStores/NYPizzaStore";
 import {Pizza as Pizza2} from "./4_FactoryPattern/2_Abstract_Factory/Pizzas/Pizza";
 import {ChicagoPizzaStore as ChicagoPizzaStore2} from "./4_FactoryPattern/2_Abstract_Factory/PizzaStores/ChicagoPizzaStore";
+import {ChocolateBoiler} from "./5_SingletonPattern/ChocolateBoiler";
 
 //StrategyPattern
 console.log('<---- Strategy Pattern ---->');
@@ -115,5 +116,12 @@ pizza2 = chicagoPizzaStore2.orderPizza('veggie');
 pizza2.displayPizza();
 
 
+//Singleton Pattern
+console.log('<---- Singleton Pattern ---->');
+let boiler = ChocolateBoiler.getInstance();
+boiler.fill();
+boiler.boil();
+boiler.drain();
 
-
+//returns existing instance itself
+let boiler2 =  ChocolateBoiler.getInstance();

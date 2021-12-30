@@ -33,7 +33,7 @@ This chapter is covered in 3 sections.
 ##### Code details:
 ![img_2.png](img_2.png)
 
-####Dependency Inversion Principle: ####
+#### Dependency Inversion Principle:
 - Reducing dependencies to concrete classes in our code.
 - Factory Method is not the only technique for adhering to the Dependency Inversion Principle, but it is one of the more powerful ones.
 - High-level components should not depend on our low-level components; rather, they should both depend on abstractions. This is dependency inevrsion
@@ -60,6 +60,17 @@ This is a guideline you should strive for, rather than a rule you should follow 
 ![img_3.png](img_3.png)
 
 
+**BULLET POINTS (COPIED FROM BOOK):**
+
+- All factories encapsulate object creation.
+- Simple Factory, while not a bona fide design pattern, is a simple way to decouple your clients from concrete classes.
+- Factory Method relies on inheritance: object creation is delegated to subclasses, which implement the factory method to create objects.
+- Abstract Factory relies on object composition: object creation is implemented in methods exposed in the factory interface.
+- All factory patterns promote loose coupling by reducing the dependency of your application on concrete classes.
+- The intent of Factory Method is to allow a class to defer instantiation to its subclasses.
+- The intent of Abstract Factory is to create families of related objects without having to depend on their concrete classes.
+- The Dependency Inversion Principle guides us to avoid dependencies on concrete types and to strive for abstractions.
+- Factories are a powerful technique for coding to abstractions, not concrete classes.
 ### How to run
 * npm install
 * npm start
