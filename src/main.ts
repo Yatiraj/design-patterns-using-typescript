@@ -22,6 +22,24 @@ import {NYPizzaStore as NYPizzaStore2} from "./4_FactoryPattern/2_Abstract_Facto
 import {Pizza as Pizza2} from "./4_FactoryPattern/2_Abstract_Factory/Pizzas/Pizza";
 import {ChicagoPizzaStore as ChicagoPizzaStore2} from "./4_FactoryPattern/2_Abstract_Factory/PizzaStores/ChicagoPizzaStore";
 import {ChocolateBoiler} from "./5_SingletonPattern/ChocolateBoiler";
+import {Light} from "./6_CommandPattern/Devices/Light";
+import {LightOnCommand} from "./6_CommandPattern/Commands/LightOnCommand";
+import {RemoteControl} from "./6_CommandPattern/RemoteControl";
+import {LightOffCommand} from "./6_CommandPattern/Commands/LightOffCommand";
+import {Stereo} from "./6_CommandPattern/Devices/Stereo";
+import {StereoOffCommand} from "./6_CommandPattern/Commands/StereoOffCommand";
+import {StereoWithCDOnCommand} from "./6_CommandPattern/Commands/StereoWithCDOnCommand";
+import {Duck} from "./1_StrategyPattern/Duck";
+import {MallardDuckk} from "./7_AdaptiveAndFacadePattern/AdapterPattern/MallardDuckk";
+import {WildTurkey} from "./7_AdaptiveAndFacadePattern/AdapterPattern/WildTurkey";
+import {TurkeyAdapter} from "./7_AdaptiveAndFacadePattern/AdapterPattern/TurkeyAdapter";
+import {HomeTheatreFacade} from "./7_AdaptiveAndFacadePattern/Facade Pattern/HomeTheatreFacade";
+import {StreamingPlayer} from "./7_AdaptiveAndFacadePattern/Facade Pattern/StreamingPlayer";
+import {Amplifier} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Amplifier";
+import {PopcornPopper} from "./7_AdaptiveAndFacadePattern/Facade Pattern/PopcornPopper";
+import {Projector} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Projector";
+import {TheaterLights} from "./7_AdaptiveAndFacadePattern/Facade Pattern/TheaterLights";
+import {Tuner} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Tuner";
 
 //StrategyPattern
 console.log('<---- Strategy Pattern ---->');
@@ -125,3 +143,52 @@ boiler.drain();
 
 //returns existing instance itself
 let boiler2 =  ChocolateBoiler.getInstance();
+
+//Command Pattern
+console.log('<---- Command Pattern ---->');
+let remoteControl = new RemoteControl();
+let light = new Light();
+//command object
+let lightOnCommand = new LightOnCommand(light);
+let lightOffCommand = new LightOffCommand(light);
+//remoteControl doesn't need to know what is request. Command object lightOnCommand encapsulates request(light.on()) as an object, and passed in as parameter for RemoteControl
+remoteControl.setCommand(0,lightOnCommand, lightOffCommand);
+remoteControl.onButtonWasPushed(0);
+remoteControl.offButtonWasPushed(0);
+remoteControl.undoButtonWasPushed();
+
+let stereo = new Stereo();
+let stereoOnWithCDCommand = new StereoWithCDOnCommand(stereo);
+let stereoOffCommand = new StereoOffCommand(stereo);
+remoteControl.setCommand(1, stereoOnWithCDCommand, stereoOffCommand);
+remoteControl.onButtonWasPushed(1);
+remoteControl.offButtonWasPushed(1);
+
+//print commands in each slot
+console.log(remoteControl.toString());
+
+//Adapter and Facade Pattern
+console.log('<---- Adapter Pattern ---->');
+let duckk = new MallardDuckk();
+duckk.fly();
+duckk.quack();
+
+let turkey = new WildTurkey();
+turkey.fly();
+turkey.gobble();
+
+let turkeyAdapter = new TurkeyAdapter(turkey);
+turkeyAdapter.fly();
+turkeyAdapter.quack();
+
+//Facade Pattern
+console.log('<---- Facade Pattern ---->');
+let homeTheaterFacade = new HomeTheatreFacade(
+    new Amplifier(),
+    new PopcornPopper(),
+    new Projector(),
+    new StreamingPlayer(),
+    new TheaterLights(),
+    new Tuner());
+homeTheaterFacade.watchMovie();
+homeTheaterFacade.endMovie();

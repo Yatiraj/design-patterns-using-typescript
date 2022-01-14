@@ -17,7 +17,7 @@ We’re using the Strategy Pattern to implement the various behaviors of our duc
 * Creating systems using composition gives you a lot more flexibility. Not only does it let you encapsulate a family of algorithms into their own set of classes, but it also lets you change behavior at runtime
 
 ### code details
-* Duck.ts -> Parent class, having implementation for common behaviours, abstract methods for uncommon behaviours, compositions that can choose behaviour at runtime
+* Duckk.ts -> Parent class, having implementation for common behaviours, abstract methods for uncommon behaviours, compositions that can choose behaviour at runtime
 * fly directory-> interface for Fly behaviour and its implementations
 * quack directory-> interface for Quack behaviour and its implementations
 

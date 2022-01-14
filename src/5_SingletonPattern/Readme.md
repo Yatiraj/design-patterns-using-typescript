@@ -6,7 +6,7 @@ Dissecting the classic Singleton Pattern implementation:
 ![img.png](img.png)
 
 ### Notes
-- - Singleton can be created in a lazy manner, which is especially important for resource-intensive objects (unilike global variables)
+- Singleton can be created in a lazy manner, which is especially important for resource-intensive objects (unilike global variables)
 - Dealing with multithreading: it’s expensive to synchronize the getInstance() method, so what do we do?
     1. Do nothing if the performance of getInstance() isn’t critical to your application
         - Synchronizing a method can decrease performance by a factor of 100, so if a high-traffic part of your code begins using getInstance(), you may have to reconsider.

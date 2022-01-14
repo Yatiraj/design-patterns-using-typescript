@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "strictPropertyInitialization": false,                             /* Skip type checking all .d.ts files. */
-    "downlevelIteration": true
+    "downlevelIteration": true,
+    "sourceMap": false,
   }
 }
