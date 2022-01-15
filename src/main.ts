@@ -40,7 +40,10 @@ import {PopcornPopper} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Popcorn
 import {Projector} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Projector";
 import {TheaterLights} from "./7_AdaptiveAndFacadePattern/Facade Pattern/TheaterLights";
 import {Tuner} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Tuner";
+import {Tea} from "./8_TemplatePattern/Tea";
+import {Cofee} from "./8_TemplatePattern/Cofee";
 
+/*
 //StrategyPattern
 console.log('<---- Strategy Pattern ---->');
 let mallardDuck = new MallardDuck();
@@ -191,4 +194,12 @@ let homeTheaterFacade = new HomeTheatreFacade(
     new TheaterLights(),
     new Tuner());
 homeTheaterFacade.watchMovie();
-homeTheaterFacade.endMovie();
+homeTheaterFacade.endMovie();*/
+
+//Template Pattern
+console.log('<---- Template Pattern ---->');
+let tea = new Tea();
+tea.prepareRecipe();
+
+let coffee = new Cofee();
+coffee.prepareRecipe();

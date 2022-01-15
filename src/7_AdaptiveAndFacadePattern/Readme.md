@@ -1,7 +1,7 @@
 # Adaptive and Facade Pattern
 
 ## Learnings from this chapter:
-**The Adapter Pattern converts the interface of a class into another interface the clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces.**
+**The Adapter Pattern converts the interface of a class into another interface the clients expect. Adapter lets classes work together that couldn’t otherwise because of incompatible interfaces.**
 
 ### Notes
 - Take eg of Power adaper. The adapter changes the interface of the outlet into one that your laptop expects.
@@ -29,7 +29,8 @@
 
     ![img_1.png](img_1.png)
     ![img_2.png](img_2.png)
-    It means when you are designing a system, for any object, be careful of the number of classes it interacts with and also how it comes to interact with those classes.
+    
+  - It means when you are designing a system, for any object, be careful of the number of classes it interacts with and also how it comes to interact with those classes.
 
     This principle prevents us from creating designs that have a large number of classes coupled together so that changes in one part of the system cascade to other parts. When you build a lot of dependencies between many classes, you are building a fragile system that will be costly to maintain and complex for others to understand.
 
