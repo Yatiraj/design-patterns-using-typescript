@@ -42,8 +42,10 @@ import {TheaterLights} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Theater
 import {Tuner} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Tuner";
 import {Tea} from "./8_TemplatePattern/Tea";
 import {Cofee} from "./8_TemplatePattern/Cofee";
+import {PanCakeHouseMenu} from "./9_IteratorAndCompositePatterns/Iterator/PanCakeHouseMenu";
+import {DinnerMenu} from "./9_IteratorAndCompositePatterns/Iterator/DinnerMenu";
+import {Waitress} from "./9_IteratorAndCompositePatterns/Iterator/Waitress";
 
-/*
 //StrategyPattern
 console.log('<---- Strategy Pattern ---->');
 let mallardDuck = new MallardDuck();
@@ -194,7 +196,7 @@ let homeTheaterFacade = new HomeTheatreFacade(
     new TheaterLights(),
     new Tuner());
 homeTheaterFacade.watchMovie();
-homeTheaterFacade.endMovie();*/
+homeTheaterFacade.endMovie();
 
 //Template Pattern
 console.log('<---- Template Pattern ---->');
@@ -203,3 +205,12 @@ tea.prepareRecipe();
 
 let coffee = new Cofee();
 coffee.prepareRecipe();
+
+//Iterator and Composite Pattern
+console.log('<---- Iterator Pattern----->')
+let panCakeHouseMenu = new PanCakeHouseMenu();
+let dinnerHouseMenu = new DinnerMenu();
+let waitress = new Waitress(panCakeHouseMenu);
+waitress.printMenu();
+waitress = new Waitress(dinnerHouseMenu);
+waitress.printMenu();
