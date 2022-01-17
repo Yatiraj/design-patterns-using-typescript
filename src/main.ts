@@ -42,9 +42,12 @@ import {TheaterLights} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Theater
 import {Tuner} from "./7_AdaptiveAndFacadePattern/Facade Pattern/Tuner";
 import {Tea} from "./8_TemplatePattern/Tea";
 import {Cofee} from "./8_TemplatePattern/Cofee";
-import {PanCakeHouseMenu} from "./9_IteratorAndCompositePatterns/Iterator/PanCakeHouseMenu";
-import {DinnerMenu} from "./9_IteratorAndCompositePatterns/Iterator/DinnerMenu";
-import {Waitress} from "./9_IteratorAndCompositePatterns/Iterator/Waitress";
+import {PanCakeHouseMenu} from "./9_IteratorAndCompositePatterns/1_Iterator/PanCakeHouseMenu";
+import {DinnerMenu} from "./9_IteratorAndCompositePatterns/1_Iterator/DinnerMenu";
+import {Waitress} from "./9_IteratorAndCompositePatterns/1_Iterator/Waitress";
+import {Menu} from "./9_IteratorAndCompositePatterns/2_Composite/Menu";
+import {MenuItem} from "./9_IteratorAndCompositePatterns/2_Composite/MenuItem";
+import {Waitress as Waitress2} from "./9_IteratorAndCompositePatterns/2_Composite/Waitress"
 
 //StrategyPattern
 console.log('<---- Strategy Pattern ---->');
@@ -210,7 +213,59 @@ coffee.prepareRecipe();
 console.log('<---- Iterator Pattern----->')
 let panCakeHouseMenu = new PanCakeHouseMenu();
 let dinnerHouseMenu = new DinnerMenu();
-let waitress = new Waitress(panCakeHouseMenu);
+let waitress = new Waitress(panCakeHouseMenu, dinnerHouseMenu);
 waitress.printMenu();
-waitress = new Waitress(dinnerHouseMenu);
-waitress.printMenu();
+
+console.log('<---- Composite Pattern ---->');
+let pancakeHouseMenu = new Menu("PANCAKE HOUSE MENU", "Breakfast");
+let dinerMenu = new Menu("DINER MENU", "Lunch");
+let cafeMenu = new Menu("CAFE MENU", "Dinner");
+let dessertMenu = new Menu("DESSERT MENU", "Dessert of course!");
+
+let allMenus = new Menu("ALL MENUS", "All menus combined");
+allMenus.add(pancakeHouseMenu);
+allMenus.add(dinerMenu);
+allMenus.add(cafeMenu);
+
+pancakeHouseMenu.add(new MenuItem(
+    "K&B's Pancake Breakfast",
+    "Pancakes with scrambled eggs and toast",
+    true,
+    2.99));
+pancakeHouseMenu.add(new MenuItem(
+    "Regular Pancake Breakfast",
+    "Pancakes with fried eggs, sausage",
+    false,
+    2.99));
+
+dinerMenu.add(new MenuItem(
+    "Vegetarian BLT",
+    "(Fakin') Bacon with lettuce & tomato on whole wheat",
+    true,
+    2.99));
+dinerMenu.add(new MenuItem(
+    "BLT",
+    "Bacon with lettuce & tomato on whole wheat",
+    false,
+    2.99));
+
+//Add submenu to menu
+dinerMenu.add(dessertMenu);
+
+dessertMenu.add(new MenuItem(
+    "Apple Pie",
+    "Apple pie with a flakey crust, topped with vanilla icecream",
+    true,
+    1.59));
+
+dessertMenu.add(new MenuItem(
+    "Cheesecake",
+    "Creamy New York cheesecake, with a chocolate graham crust",
+    true,
+    1.99));
+
+let waitress2 = new Waitress2(allMenus);
+waitress2.printMenu();
+
+
+

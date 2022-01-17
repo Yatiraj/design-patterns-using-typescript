@@ -4,8 +4,8 @@ The Observer Pattern defines a one-to-many dependency between objects so that wh
 We are using the observer pattern to notify the weather parameter changes to the displays that have subscribed
 
 ## Learnings from this chapter:
-### OO Principles:
-* Strive for loosely coupled designs between objects thats interact
+
+* Strive for loosely coupled designs between objects that interact
 
 ### Notes
 - The Observer Pattern defines a one-to-many relationship between objects.
