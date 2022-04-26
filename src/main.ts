@@ -59,7 +59,7 @@ import {QuackCounter} from "./12_CompoundPatterns/QuackCounter";
 import {CountingDuckFactory} from "./12_CompoundPatterns/CountingDuckFactory";
 import {AbstractDuckFactory} from "./12_CompoundPatterns/AbstractDuckFactory";
 //StrategyPattern
-/*console.log('<---- Strategy Pattern ---->');
+console.log('<---- Strategy Pattern ---->');
 let mallardDuck = new MallardDuck();
 mallardDuck.display();
 mallardDuck.performFly();
@@ -291,19 +291,19 @@ gumBallMachine.turnCrank();
 
 //You cant insert another quarter
 gumBallMachine.insertQuarter();
-gumBallMachine.insertQuarter(); */
+gumBallMachine.insertQuarter();
 
 // Compound Pattern
 console.log('<---- Compound Pattern ---->');
 let duckFactory: AbstractDuckFactory = new CountingDuckFactory();
-let mallardDuck: Quackable = duckFactory.createMallardDuck();
+let mallardDuck1: Quackable = duckFactory.createMallardDuck();
 let readHeadDuck: Quackable = duckFactory.createReadHeadDuck();
-let rubberDuck: Quackable = duckFactory.createRubberDuck();
+let rubberDuck1: Quackable = duckFactory.createRubberDuck();
 let goose: Quackable = new QuackCounter(new GooseAdapter(new Goose()));
 
-simulate(mallardDuck);
+simulate(mallardDuck1);
 simulate(readHeadDuck);
-simulate(rubberDuck);
+simulate(rubberDuck1);
 simulate(goose);
 
 function simulate(duck: Quackable): void {
