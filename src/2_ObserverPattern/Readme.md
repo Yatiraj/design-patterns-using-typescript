@@ -7,7 +7,7 @@ We are using the observer pattern to notify the weather parameter changes to the
 
 * Strive for loosely coupled designs between objects that interact
 
-### Notes
+###Notes
 - The Observer Pattern defines a one-to-many relationship between objects.
 - Subjects update Observers using a common interface.
 - Observers of any concrete type can participate in the pattern as long as they implement the Observer interface.

@@ -48,9 +48,18 @@ import {Waitress} from "./9_IteratorAndCompositePatterns/1_Iterator/Waitress";
 import {Menu} from "./9_IteratorAndCompositePatterns/2_Composite/Menu";
 import {MenuItem} from "./9_IteratorAndCompositePatterns/2_Composite/MenuItem";
 import {Waitress as Waitress2} from "./9_IteratorAndCompositePatterns/2_Composite/Waitress"
-
+import {GumBallMachine} from './10_StatePattern/GumBallMachine';
+import {Quackable} from "./12_CompoundPatterns/Quackable";
+import {MallardDuck as MallardDuck2} from "./12_CompoundPatterns/Ducks/MallardDuck"
+import {RedHeadDuck as RedHeadDuck2} from "./12_CompoundPatterns/Ducks/RedHeadDuck"
+import {RubberDuck as RubberDuck2} from "./12_CompoundPatterns/Ducks/RubberDuck"
+import {Goose} from "./12_CompoundPatterns/Goose/Goose";
+import {GooseAdapter} from "./12_CompoundPatterns/Goose/GooseAdapter";
+import {QuackCounter} from "./12_CompoundPatterns/QuackCounter";
+import {CountingDuckFactory} from "./12_CompoundPatterns/CountingDuckFactory";
+import {AbstractDuckFactory} from "./12_CompoundPatterns/AbstractDuckFactory";
 //StrategyPattern
-console.log('<---- Strategy Pattern ---->');
+/*console.log('<---- Strategy Pattern ---->');
 let mallardDuck = new MallardDuck();
 mallardDuck.display();
 mallardDuck.performFly();
@@ -267,5 +276,39 @@ dessertMenu.add(new MenuItem(
 let waitress2 = new Waitress2(allMenus);
 waitress2.printMenu();
 
+//State Pattern
+console.log('<---- State Pattern ---->');
+let gumBallMachine = new GumBallMachine(2);
+gumBallMachine.insertQuarter();
+gumBallMachine.turnCrank();
+
+
+//You havent inserted a quarter
+gumBallMachine.ejectQuarter();
+
+//You turned, but no quarter
+gumBallMachine.turnCrank();
+
+//You cant insert another quarter
+gumBallMachine.insertQuarter();
+gumBallMachine.insertQuarter(); */
+
+// Compound Pattern
+console.log('<---- Compound Pattern ---->');
+let duckFactory: AbstractDuckFactory = new CountingDuckFactory();
+let mallardDuck: Quackable = duckFactory.createMallardDuck();
+let readHeadDuck: Quackable = duckFactory.createReadHeadDuck();
+let rubberDuck: Quackable = duckFactory.createRubberDuck();
+let goose: Quackable = new QuackCounter(new GooseAdapter(new Goose()));
+
+simulate(mallardDuck);
+simulate(readHeadDuck);
+simulate(rubberDuck);
+simulate(goose);
+
+function simulate(duck: Quackable): void {
+    duck.quack();
+}
+console.log("Ducks quacked time:" + QuackCounter.quackCount);
 
 
